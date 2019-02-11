@@ -5,12 +5,14 @@
         <div class="card my-4">
           <h5 class="card-header">Search</h5>
           <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
+            <form action="search.php" method="post">
+                <div class="input-group">
+                  <input type="text" name="keyword" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button name="submit" class="btn btn-secondary" type="submit">Go!</button>
+                  </span>
+                </div>
+            </form>
           </div>
         </div>
 
@@ -20,30 +22,24 @@
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6">
+                <?php 
+                    $query = "SELECT * FROM category_data";
+                    $category = $database->select($query);
+                    if ($category) {
+                        while ($result = $category->fetch_assoc()) {
+                ?>
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
+                    <a href="posts.php?categoryId=<?php echo $result['id'] ?>"><?php echo $result['name']; ?></a>
                   </li>
                 </ul>
-              </div>
-              <div class="col-lg-6">
+            <?php }}else{ ?>
                 <ul class="list-unstyled mb-0">
                   <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
+                    <a href="#">No category found</a>
                   </li>
                 </ul>
+            <?php } ?>
               </div>
             </div>
           </div>
