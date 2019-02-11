@@ -23,6 +23,7 @@ $format = new Format();
 
   <!-- Custom styles for this template -->
   <link href="css/blog-home.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 
 </head>
 

@@ -31,7 +31,7 @@
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title"><?php echo $result['title'] ?></h2>
+            <a href="post.php?id=<?php echo $result['id'] ?>"><h2 class="card-title"><?php echo $result['title'] ?></h2></a>
             <p class="card-text"><?php echo $format->textShorten($result['body'], 400) ?></p>
             <a href="post.php?id=<?php echo $result['id'] ?>" class="btn btn-primary">Read More &rarr;</a>
           </div>
@@ -55,7 +55,7 @@
           </li>
          <?php 
             for ($i=1; $i < $total_pages; $i++) {
-            echo "<a href='index.php?page=$i'>$i</a>";
+            echo "<a class='page-link' href='index.php?page=$i'>$i</a>";
         }?>
           <li class="page-item">
             <a class="page-link" href="<?php echo "index.php?page=1" ?>">Newer &rarr;</a>
