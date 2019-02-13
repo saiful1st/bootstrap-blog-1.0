@@ -63,7 +63,7 @@
                     $value = mysqli_fetch_array($result);
                     $rows = mysqli_num_rows($result);
                     if ($rows > 0) {
-                        Session::init("login", true);
+                        Session::set("login", true);
                         Session::set("username", $value['username']);
                         Session::set("userid", $value['id']);
                         echo "<script>window.location = 'admin/index.php';</script>";
@@ -83,7 +83,7 @@
               <input type="password" class="form-control col-10" name="password" placeholder="type your password">
             </div>
             <div class="input-group mb-2">
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+              <button type="submit" name="loginSubmit" class="btn btn-primary mb-2">Submit</button>
             </div>
         </form>
           </div>

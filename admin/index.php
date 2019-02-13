@@ -238,7 +238,13 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item"><a class="nav-link" href="login.php"><i class="icon ion-android-exit"> Logout</i></a></li>
+            <?php
+                if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+                    Session::destroy();
+                    //header("Location: ../index.php");
+                }
+            ?>
+            <li class="nav-item"><a class="nav-link" href="?action=logout"><i class="icon ion-android-exit"> Logout</i></a></li>
             <li class="nav-item"><a class="nav-link close-mobile-nav js-close-mobile-nav" href="#"><i class="icon ion-close"></i></a></li>
             <!-- END TOP RIGHT MENU-->
           </ul>

@@ -1,5 +1,6 @@
 <?php
-    
+    include '../lib/Session.php';
+    Session::checkSession();
     include '../config/config.php';
     include '../lib/Database.php';
     include '../format/Format.php';

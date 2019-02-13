@@ -54,12 +54,8 @@
             </ul>
           </li>
 
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-document"></i>
-              <div class="menu-block-label">Slider Option</div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="page-tasks.html">Slider List</a></li>
-              <li class="nav-item"><a class="nav-link" href="page-project-details.html">Add Slider</a></li>
-            </ul>
+          <li class=""><a class="nav-link" href="inbox.php"><i class="icon ion-document"></i>Inbox</a>
+           
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-android-people"></i>
               <div class="menu-block-label">User</div></a>
