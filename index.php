@@ -22,14 +22,14 @@
           <small>Secondary Text</small>
         </h1>
         <?php
-            $query = "SELECT * FROM post_table LIMIT $start_from, $per_page";
+            $query = "SELECT * FROM post_table ORDER BY id DESC LIMIT $start_from, $per_page";
             $posts = $database->select($query);
             if ($posts) {
                 while ($result = $posts->fetch_assoc()) {
         ?>
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="card-img-top" id="imageSize" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
             <a href="post.php?id=<?php echo $result['id'] ?>"><h2 class="card-title"><?php echo $result['title'] ?></h2></a>
             <p class="card-text"><?php echo $format->textShorten($result['body'], 400) ?></p>

@@ -1,3 +1,15 @@
 .pag{
 	padding: 20px;
 }
+/*For index Page*/
+#imageSize{
+	width: 729px;
+	height: 300px;
+}
+#imagePost{
+	width: 729px;
+	height: 400px;
+}
+#active{
+	color: fff;
+}

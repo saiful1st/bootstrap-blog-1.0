@@ -9,8 +9,14 @@ class Format{
 	}
 
 	public function formatDate($date){
-			return date('F j, Y', strtotime($date));
-		}
+		return date('F j, Y', strtotime($date));
+	}
+	public function validate($data){
+		$data = trim($data);
+		$data = stripcslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
 }
 
 ?>

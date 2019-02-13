@@ -49,16 +49,43 @@
         <div class="card my-4">
           <h5 class="card-header">Login</h5>
           <div class="card-body">
-          <div class="input-group mb-2">
-            <input type="email" class="form-control col-10" name="email" placeholder="type your email">
-          </div>
-          <div class="input-group mb-2">
-            <input type="password" class="form-control col-10" name="password" placeholder="type your password">
-          </div>
-          <div class="input-group mb-2">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-          </div>
-            
+        <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $username = $format->validate($_POST['username']);
+                $password = $format->validate($_POST['password']);
+
+                $username = mysqli_real_escape_string($database->connection, $username);
+                $password = mysqli_real_escape_string($database->connection, md5($password));
+
+                $query = "SELECT * FROM user_table WHERE username = '$username' AND password = '$password'";
+                $result = $database->select($query);
+                if ($result != false) {
+                    $value = mysqli_fetch_array($result);
+                    $rows = mysqli_num_rows($result);
+                    if ($rows > 0) {
+                        Session::init("login", true);
+                        Session::set("username", $value['username']);
+                        Session::set("userid", $value['id']);
+                        echo "<script>window.location = 'admin/index.php';</script>";
+                    }else{
+                        echo "<p style='color:red'>Data didn't found</p>";
+                    }
+                }else{
+                    echo "<p style='color:red'>Username/Password didn't match</p>";
+                }
+            }
+        ?>
+          <form method="post" action="">
+            <div class="input-group mb-2">
+              <input type="text" class="form-control col-10" name="username" placeholder="type your email">
+            </div>
+            <div class="input-group mb-2">
+              <input type="password" class="form-control col-10" name="password" placeholder="type your password">
+            </div>
+            <div class="input-group mb-2">
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+        </form>
           </div>
         </div>
 

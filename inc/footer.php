@@ -1,7 +1,14 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    <?php 
+        $query = "SELECT * FROM copyright_data WHERE id='1'";
+        $copyright = $database->select($query);
+        if ($copyright) {
+            while ($result = $copyright->fetch_assoc()) {
+    ?>
+      <p class="m-0 text-center text-white"><?php echo $result['text']; ?></p>
+    <?php }} ?>
     </div>
     <!-- /.container -->
   </footer>

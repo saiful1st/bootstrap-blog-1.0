@@ -15,6 +15,7 @@
 
       <!-- Blog Entries Column -->
       <div class="col-md-8">
+        <br>
         <?php
             $query = "SELECT * FROM post_table WHERE category = '$category'";
             $posts = $database->select($query);
@@ -23,7 +24,7 @@
         ?>
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <img class="card-img-top" id="imageSize" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
             <a href="post.php?id=<?php echo $result['id'] ?>"><h2 class="card-title"><?php echo $result['title'] ?></h2></a>
             <p class="card-text"><?php echo $format->textShorten($result['body'], 400) ?></p>
