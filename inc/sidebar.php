@@ -66,6 +66,8 @@
                         Session::set("login", true);
                         Session::set("username", $value['username']);
                         Session::set("userid", $value['id']);
+                        Session::set("userrole", $value['role']);
+                        Session::set("name", $value['name']);
                         echo "<script>window.location = 'admin/index.php';</script>";
                     }else{
                         echo "<p style='color:red'>Data didn't found</p>";

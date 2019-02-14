@@ -6,7 +6,7 @@
               <div class="circle-box"><img src="assets/images/face/1.jpg" alt="">
                 <div class="dot dot-success"></div>
               </div>
-              <div class="menu-block-label"><b>Odalys Broussard</b><br>Managing Director</div></a></li>
+              <div class="menu-block-label"><b><?php echo Session::get('name'); ?></b><br><?php if(Session::get('userrole') == 0){ echo "Admin";}elseif(Session::get('userrole') == 1){ echo "Author"; }elseif(Session::get('userrole') == 2){ echo "Editor"; }; ?></div></a></li>
         </ul>
         <div class="p-a-2"><span class="small pull-xs-right">This Month Earnings</span>
           <canvas id="demo-bar-dark-chart"></canvas>
@@ -15,12 +15,8 @@
           <li class="nav-item"><a class="nav-link" href="index.php"><i class="icon ion-home"></i>
               <div class="menu-block-label">Home</div></a></li>
          
-          <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-monitor"></i>
-              <div class="menu-block-label">Dashboard<span class="label label-success">new</span></div></a>
-            <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="dashboard-1.html">Dashboard Basic</a></li>
-              <li class="nav-item"><a class="nav-link" href="dashboard-2.html">Game Dashboard<span class="label label-success">new</span></a></li>
-            </ul>
+          <li class="nav-item"><a class="nav-link" href="profile.php"><i class="icon ion-monitor"></i>
+              <div class="menu-block-label">Profile</div></a>
           </li>
           <!--li.header GENERAL-->
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-ios-grid-view-outline"></i>
@@ -54,23 +50,19 @@
             </ul>
           </li>
 
-          <li class=""><a class="nav-link" href="inbox.php"><i class="icon ion-document"></i>Inbox</a>
+          <li class=""><a class="nav-link" href="inbox.php"><i class="icon ion-document"></i>Inbox
+            <?php
+                $query = "SELECT * FROM contact_table WHERE status='0'";
+                $msglist = $database->select($query);
+            ?>
+          </a>
            
           </li>
           <li class="menu-block-has-sub nav-item"><a class="nav-link" href="#"><i class="icon ion-android-people"></i>
               <div class="menu-block-label">User</div></a>
             <ul class="nav menu-block-sub">
-              <li class="nav-item"><a class="nav-link" href="user-login.html">Login</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-login-2.html">Login 2</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-login-3.html">Login 3</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-register.html">Register</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-register-2.html">Register 2</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-register-3.html">Register 3</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-register-4.html">Register 4</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-lists.html">Users Lists</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-profile.html">User Profile</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-profile-2.html">User Profile 2</a></li>
-              <li class="nav-item"><a class="nav-link" href="user-profile-3.html">User Profile 3</a></li>
+              <li class="nav-item"><a class="nav-link" href="adduser.php">Add User</a></li>
+              <li class="nav-item"><a class="nav-link" href="userlist.php">User List</a></li>
             </ul>
           </li>
           <!--li.header.nav-item user interface-->

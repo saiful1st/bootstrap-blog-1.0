@@ -28,10 +28,8 @@
             if (empty($name)) {
                 $errorname = "Name Must not be empty";
             }
-            if (empty($email)) {
+            if(empty($email)) {
                 $erroremail = "Email must not be empty";
-            }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $erroremail = "Invalid Email";
             }
             if(empty($message)) {
                 $errormsg = "Message must not be empty";
