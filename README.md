@@ -1,2 +1,3 @@
 # bootstrap-blog-1.0
-Blog with created with bootstrap and Object Oriented PHP
+Blog created with bootstrap and Object Oriented PHP
+It's just a simple blog where you can publish your article by regestering to the website.
